@@ -8,26 +8,28 @@ namespace Nelinurk
 {
     class Nelinurk
     {
-        int korgus;
-        int laius;
-        private int umber;
-        private int ala;
+        double korgus;
+        double laius;
+        private double umber;
+        private double ala;
         private string tuup;
-
+        private double diagonaal;
 
 
         public Nelinurk() { }
-        public Nelinurk(int Korgus, int Laius)
+        public Nelinurk(double Korgus, double Laius)
         {
             korgus = Korgus;
             laius = Laius;
         }
-        public int Korgus
+        public double Korgus
         {
+            set { if (korgus == 0) korgus = value; }
             get { return korgus; }
         }
-        public int Laius
+        public double Laius
         {
+            set { if (laius == 0) laius = value; }
             get { return laius; }
         }
         public string Tuup
@@ -36,7 +38,7 @@ namespace Nelinurk
             {
                 if (laius == korgus)
                 {
-                    tuup = "võrdkülgsed";
+                    tuup = "ruut";
                 }
                 else
                 {
@@ -47,7 +49,7 @@ namespace Nelinurk
         }
         public double Umbermoot
         {
-            get 
+            get
             {
                 umber = (korgus + laius) * 2;
                 return umber; 
@@ -61,9 +63,21 @@ namespace Nelinurk
                 return ala; 
             }
         }
+        public double Diagonaal
+        {
+            get
+            {
+                diagonaal = Math.Sqrt(korgus * korgus + laius * laius);
+                return diagonaal;
+            }
+        }
         public void Info()
         {
-            Console.WriteLine("Ala on {0}cm^2 ja Ümbermõõs on {1}cm. See on {2} nelinurk", Ala, Umbermoot, Tuup);
+            Console.WriteLine("Ala on {0}cm^2 ja Ümbermõõt on {1}cm. See on {2} nelinurk", Ala, Umbermoot, Tuup);
+        }
+        public void DiagonaalInfo()
+        {
+            Console.WriteLine("Diagonaal on {0} cm", Math.Round(Diagonaal,2));
         }
     }
 }

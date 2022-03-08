@@ -10,8 +10,9 @@ namespace Nelinurk
     {
         static void Main(string[] args)
         {
-            Nelinurk nurk = new Nelinurk(2, 2);
+            Nelinurk nurk = new Nelinurk(3, 3);
             nurk.Info();
+            nurk.DiagonaalInfo();
             Console.ReadKey();
         }
     }
